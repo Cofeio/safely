@@ -26,7 +26,7 @@ export default class Child extends Component {
     this.api.getChildLocation().then(({data, message}) => {
       this.updateLocation(data)
       navigator.geolocation.getCurrentPosition((position) => {
-        this.updateLocation(position.coords)
+        this.updateLocation({coords: position.coords})
         let locationWatchId = navigator.geolocation.watchPosition(({coords}) => {
           this.updateLocation(coords)
         })
@@ -59,9 +59,10 @@ export default class Child extends Component {
 
   sendLocationUpdate(){
     const { coords } = this.state
+    const { latitude, longitude } = coords || {}
 
-    if(coords && coords.latitude != null && coords.longitude != null){
-      this.api.updateChildLocation(coords).then((response) => {
+    if(latitude != null && longitude != null){
+      this.api.updateChildLocation({latitude, longitude}).then((response) => {
         console.log(response, this.state)
       }, networkError)
     }
