@@ -7,7 +7,9 @@ const LESS_DIR = path.resolve(__dirname, 'less')
 
 
 const entry_points = {
-  index: `${APP_DIR}/index.js`
+  index: `${APP_DIR}/index.js`,
+  parent: `${APP_DIR}/parent.js`,
+  child: `${APP_DIR}/child.js`
 }
 
  
@@ -30,4 +32,7 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+     headers: { "Access-Control-Allow-Origin": "*" }
+  }
 }
