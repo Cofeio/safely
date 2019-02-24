@@ -26,7 +26,7 @@ export default class Child extends Component {
     this.api.getChildLocation().then(({data, message}) => {
       this.updateLocation(data)
       navigator.geolocation.getCurrentPosition((position) => {
-        this.updateLocation({coords: position.coords})
+        this.updateLocation(position.coords)
         let locationWatchId = navigator.geolocation.watchPosition(({coords}) => {
           this.updateLocation(coords)
         })
