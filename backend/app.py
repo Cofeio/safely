@@ -30,7 +30,21 @@ def check_here_api(latitude, longitude):
     response = requests.get('https://gfe.api.here.com/2/search/proximity.json',
                             params=params)
 
-    print(response.content)
+    response_json = response.json()
+
+    return_data = dict()
+
+    return_data['safe'] = True
+    return_data['waypoint'] = dict()
+    try:
+        return_data['safe'] = int(response_json['geometries'][0]['distance']) <= 0
+        return_data['waypoint']['latitude'] = response_json['geometries'][0]['nearestLat']
+        return_data['waypoint']['longitude'] = response_json['geometries'][0]['nearestLon']
+    except (KeyError, IndexError):
+        pass
+
+    return return_data
+
 
 @app.route('/')
 def hello():
@@ -45,18 +59,24 @@ def set_location():
     	child_location['latitude'] = data['latitude']
     	child_location['longitude'] = data['longitude']
 
-    check_here_api(child_location['latitude'], child_location['longitude'])
+    here_data = check_here_api(child_location['latitude'], child_location['longitude'])
+    print(here_data)
 
     return jsonify(message='Child Location updated!',
-    	           data=child_location), 200
+    	           data=child_location,
+                   safe=here_data['safe'],
+                   waypoint=here_data['waypoint']), 200
 
 
 @app.route('/child_location', methods=['GET'])
 def get_location():
-    check_here_api(child_location['latitude'], child_location['longitude'])
+    here_data = check_here_api(child_location['latitude'], child_location['longitude'])
+    print(here_data)
 
     return jsonify(message='Child Location:',
-    	           data=child_location), 200
+                   data=child_location,
+                   safe=here_data['safe'],
+                   waypoint=here_data['waypoint']), 200
 
 
 if __name__ == '__main__':
