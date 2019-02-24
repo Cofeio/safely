@@ -1,54 +1,48 @@
 body{
-	background-color: #d1d3dd;	
-	
+	background-color: #fafafa;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
-#root {
-	.yo-kids{	
-		button {
-		  border-radius: 10px;
-		  background-color: #525A7F; /* Green */
-		  border: none;
-		  color: #d1d3dd;
-		  //padding: 10% 50%;
-		  width: 60%;
-		  height: 10%;
-		  text-align: center;
-		  text-decoration: none;
-		  display: inline-block;
-		  font-size: 16px;
+#navbar {
+  position: fixed;
+  background-color: #66cc00;
+  color: #ffffff;
+  height: 55px;
+  .burger {
+    position: absolute;
+    left: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 
-		  position:absolute;
-		  transition: .5s ease;
-		  top: 85%;
-		  left: 20%;
-		}	
-	}
+  width: 100%;
+  background-color: #66cc00;
+  top: 0;
+  left: 0;
+
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
-.child{
-	button {
-		border-radius: 10px;
-		background-color: #525A7F; /* Green */
-		border: none;
-		color: #d1d3dd;
-		//padding: 30px 60px;
-		width: 60%;
-		height: 10%;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-
-		position:absolute;
-		transition: .5s ease;
-		top: 70%;
-		left: 20%;
-	}
+.image {
+  padding-top: 50px;
+  margin-left: -15px;
 }
 
-.title{
-	position: fixed; /* or absolute */
-  	left: 25%;
-	color: #525A7F;
+.title {
+  color: #8f00ff;
+  padding-top: 30%;
+}
+
+.button-holder {
+  padding-top: 30%;
+}
+
+.child-button {
+  background-color: #525A7F !important;
+  color: #ffffff !important;
+}
+
+.parent-button {
+  background-color: #66cc00 !important;
+  color: #ffffff !important;
 }
