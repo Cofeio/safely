@@ -1,0 +1,17 @@
+# Backend
+*.pyc
+.cache
+*.swp
+
+
+# Client
+
+client/package-lock.json
+client/dist
+client/node_modules
+
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
