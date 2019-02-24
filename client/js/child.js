@@ -112,6 +112,7 @@ export default class Child extends Component {
   }
 
   sendLocationUpdate(){
+    return
     const { coords } = this.state
     const { latitude, longitude } = coords || {}
 
@@ -126,7 +127,8 @@ export default class Child extends Component {
     const { coords } = this.state
     return(
       <div>
-        <h1>{`Lat: ${(coords || {}).latitude || ""}  Long: ${(coords || {}).longitude || ""}`}</h1>
+        {/* <h1>{`Lat: ${(coords || {}).latitude || ""}  Long: ${(coords || {}).longitude || ""}`}</h1> */}
+        <img src="map.png"/>
       </div>
     )
   }
