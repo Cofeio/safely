@@ -20,8 +20,8 @@ child_location = {'latitude': 0.0, 'longitude': 0.0}
 
 def check_here_api(latitude, longitude):
     params = {
-        'app_id': f'{YOUR_APP_ID}',
-        'app_code': f'{YOUR_APP_CODE}',
+        'app_id': f'{APP_ID}',
+        'app_code': f'{APP_CODE}',
         'layer_ids': 1,
         'key_attribute': 'NAME',
         'proximity': f'{latitude},{longitude}'
