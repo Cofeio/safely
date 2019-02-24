@@ -1,7 +1,9 @@
 import React, {Component} from "react"
 import ReactDOM from "react-dom"
+import Button from '@material-ui/core/Button';
 
 import Safely, {networkError} from "./api"
+import Navbar from "./navbar"
 
 import "../less/index.less"
 
@@ -15,23 +17,21 @@ export default class Index extends Component {
 	render(){
 		return (
 				<div>
-					<div className="title">
-						<h1>Peace of Mind</h1>
-					</div>
+          <Navbar />
 					<div className="image">
-						<img src="../public/logo.jpg" alt="logo"/>
+						<img src="logo.jpeg" alt="logo" style={{ height: "32px" }}/>
 					</div>
-					<div className="yo-kids">
-						<a href="parent.html">
-	         		<button>Parent</button>
-	      		</a>
-					</div>
-
-					<div className="child">
-						<a href="child.html">
-	         		<button>Child</button>
-	      		</a>
-					</div>
+          <div className="title">
+            <h1>peace of mind</h1>
+          </div>
+          <div className="button-holder">
+            <Button href="parent.html" classes={{ root: "parent-button" }}>
+              Parent
+            </Button>
+            <Button href="child.html" classes={{ root: "child-button" }}>
+              Child
+            </Button>
+          </div>
 				</div>
 
 		)
