@@ -13,7 +13,7 @@ export default class Index extends Component {
 
 	render(){
 		return (
-			<div class="yo-kids">
+			<div className="yo-kids">
 				We are Safely. Protect yo kids!
 				<a href="parent.html">
 					<button>Parents</button>
