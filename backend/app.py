@@ -41,6 +41,8 @@ def check_here_api(latitude, longitude):
         return_data['waypoint']['latitude'] = response_json['geometries'][0]['nearestLat']
         return_data['waypoint']['longitude'] = response_json['geometries'][0]['nearestLon']
     except (KeyError, IndexError):
+        return_data['waypoint']['latitude'] = None
+        return_data['waypoint']['longitude'] = None
         pass
 
     return return_data
@@ -62,11 +64,17 @@ def set_location():
     here_data = check_here_api(child_location['latitude'], child_location['longitude'])
     print(here_data)
 
+    if 'latitude' in here_data['waypoint'] and here_data['waypoint']['latitude'] and \
+       'longitude' in here_data['waypoint'] and here_data['waypoint']['longitude']:
+        waypoint = here_data['waypoint']
+    else:
+        waypoint = None
+
     return jsonify(message='Child Location updated!',
     	           data=child_location,
                    safe=here_data['safe'],
-                   waypoint=here_data['waypoint']), 200
-
+                   waypoint=waypoint), 200
+    
 
 @app.route('/child_location', methods=['GET'])
 def get_location():
@@ -76,7 +84,7 @@ def get_location():
     return jsonify(message='Child Location:',
                    data=child_location,
                    safe=here_data['safe'],
-                   waypoint=here_data['waypoint']), 200
+                   waypoint=waypoint), 200
 
 
 if __name__ == '__main__':
