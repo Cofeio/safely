@@ -2,7 +2,7 @@
 
 ## Activate Python3 virtualenv
 ```
-. venv/bin/activate
+. safely/bin/activate
 ```
 
 ```
