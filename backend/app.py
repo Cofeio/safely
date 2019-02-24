@@ -37,7 +37,7 @@ def check_here_api(latitude, longitude):
     return_data['safe'] = True
     return_data['waypoint'] = dict()
     try:
-        return_data['safe'] = int(response_json['geometries'][0]['distance']) <= 0
+        return_data['safe'] = int(response_json['geometries'][0]['distance']) >= 0
         return_data['waypoint']['latitude'] = response_json['geometries'][0]['nearestLat']
         return_data['waypoint']['longitude'] = response_json['geometries'][0]['nearestLon']
     except (KeyError, IndexError):
