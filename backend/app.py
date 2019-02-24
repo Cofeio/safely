@@ -53,6 +53,8 @@ def set_location():
 
 @app.route('/child_location', methods=['GET'])
 def get_location():
+    check_here_api(child_location['latitude'], child_location['longitude'])
+
     return jsonify(message='Child Location:',
     	           data=child_location), 200
 
