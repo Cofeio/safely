@@ -11,14 +11,14 @@ export function networkError(...args) {
 export default class Safely {
   getChildLocation(){
     return $.ajax(Object.assign({}, commonAjaxConfig, {
-      url: "http://69ba773d.ngrok.io/child_location",
+      url: "https://1e1b49c2.ngrok.io/child_location",
       type: 'GET'
     }))
   }
 
   updateChildLocation(data){
     return $.ajax(Object.assign({}, commonAjaxConfig, {
-      url: "http://69ba773d.ngrok.io/child_location",
+      url: "https://1e1b49c2.ngrok.io/child_location",
       type: 'POST',
       data: JSON.stringify(data),
       contentType: false,
