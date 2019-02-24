@@ -11,14 +11,29 @@ export default class Index extends Component {
 		this.state = {}
 	}
 
+
 	render(){
 		return (
-			<div className="yo-kids">
-				We are Safely. Protect yo kids!
-				<a href="parent.html">
-					<button>Parents</button>
-				</a>
-			</div>
+				<div>
+					<div className="title">
+						<h1>Peace of Mind</h1>
+					</div>
+					<div className="image">
+						<img src="../public/logo.jpg" alt="logo"/>
+					</div>
+					<div className="yo-kids">
+						<a href="parent.html">
+	         		<button>Parent</button>
+	      		</a>
+					</div>
+
+					<div className="child">
+						<a href="child.html">
+	         		<button>Child</button>
+	      		</a>
+					</div>
+				</div>
+
 		)
 	}
 }
