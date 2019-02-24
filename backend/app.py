@@ -24,7 +24,7 @@ def check_here_api(latitude, longitude):
         'app_code': f'{APP_CODE}',
         'layer_ids': 1,
         'key_attribute': 'NAME',
-        'proximity': f'{latitude},{longitude},500'
+        'proximity': f'{latitude},{longitude},50000'
     }
 
     response = requests.get('https://gfe.api.here.com/2/search/proximity.json',
