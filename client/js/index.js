@@ -16,7 +16,7 @@ export default class Index extends Component {
 
 	render(){
 		return (
-				<div>
+				<div className="landing">
           <Navbar />
 					<div className="image">
 						<img src="logo.jpeg" alt="logo" style={{ height: "32px" }}/>
